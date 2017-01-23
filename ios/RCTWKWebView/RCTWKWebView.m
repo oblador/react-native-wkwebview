@@ -40,7 +40,9 @@
     WKUserContentController* userController = [[WKUserContentController alloc]init];
     [userController addScriptMessageHandler:self name:@"reactNative"];
     config.userContentController = userController;
-    
+    config.allowsInlineMediaPlayback = YES;
+    config.requiresUserActionForMediaPlayback = NO;
+
     _webView = [[WKWebView alloc] initWithFrame:self.bounds configuration:config];
     _webView.UIDelegate = self;
     _webView.navigationDelegate = self;
